@@ -1,0 +1,23 @@
+
+clear;
+clc;
+syms s t;
+
+F1 = (10*(s+2))/(s*(s^2+4*s+5));
+ans1 = ilaplace(F1,s,t);
+ezplot(ans1,[-20,20]);
+figure;
+F2 = (s-5)/(s*(s+2)^2);
+ans2 = ilaplace(F2,s,t);
+ezplot(ans2,[-20,20]);
+figure;
+F3 = exp(-5*s)*((2*s^2+3)/(s^2+s-1));
+ans3 = ilaplace(F3,s,t);
+ezplot(ans3,[-20,20]);
+figure;
+ba = tf(1, [10 .1 1]);
+bode(ba);
+figure;
+
+bb = tf([1 1],[1 4 4]);
+bode(bb);
